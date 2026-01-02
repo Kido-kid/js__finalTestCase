@@ -1,0 +1,246 @@
+/* General body styling */
+body {
+    background-color:#ffffff;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Calculator container */
+.calculator {
+    background: #f0f3ff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Data entry section */
+.data_entry {
+    margin-bottom: 15px;
+}
+
+.data_entry input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    text-align: right;
+}
+
+/* Remove borders for secondary and error views */
+.dataView_secondary input,
+.ErrorView input {
+    border: none;
+    background: transparent;
+}
+
+/* Button table */
+.buttonTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.buttonTable td {
+    padding: 5px;
+}
+
+/* General button styling */
+.calc-key {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Number keys (0-9) */
+.digit {
+    color: #3b50b2;
+    background: #fff;
+    border: 2px solid transparent;
+}
+
+/* Equal key */
+#equal {
+    background: #3c51b4;
+    color: #fff;
+}
+
+/* Other keys */
+.calc-key:not(.digit):not(#equal) {
+    background: #d9dffb;
+    color: #3c51b2;
+}
+
+/* Hover effect */
+.calc-key:hover {
+    background: #3b50b2 !important;
+    color: #fff !important;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .calculator{
+    background: black;
+    h2{
+        color: #bfbfbf ;
+
+    }
+    #toggleHistory{
+        color: #bfbfbf;
+
+    }
+
+    .data_entry input{
+        color: #bfbfbf ;
+    }
+}
+
+body.dark-mode .digit{
+    background: #3b3e43;/* #333438;*/
+    color: #bfbfbf;
+}
+
+body.dark-mode #equal {
+    background: #aecbfa;
+    color: #1f1f1f;
+}
+
+body.dark-mode .calc-key:not(.digit):not(#equal) {
+    background: #2c303d;
+    color: #eef0ff;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .calc-key {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    .calculator {
+        max-width: 95%;
+        padding: 15px;
+    }
+}
+
+/* Heading */
+.calc-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: #3b50b2;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* History toggle (text only, no button box) */
+#toggleHistory {
+    background: none;
+    border: none;
+    color: #3b50b2;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+    margin-bottom: 3px;
+}
+
+#toggleHistory:hover {
+    color: #2a3a90;
+    text-decoration: none;
+}
+
+/* History container */
+#historyContainer {
+    margin-top: 2px;
+    max-height: 100px;       /* allow more entries */
+    overflow-y: auto;        /* scroll if needed */
+    font-family: monospace;
+    background: #f0f3ff;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* Hide scrollbar (Chrome, Safari, Edge) */
+#historyContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar (Firefox) */
+#historyContainer {
+    scrollbar-width: none;
+}
+
+/* History entries (no borders, clean spacing) */
+.history-entry {
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+.history-entry .expr {
+    color: #555;
+    margin-right: 8px;
+}
+
+.history-entry .res {
+    font-weight: bold;
+    color: #222;
+}
+
+/* Hover effect for entries */
+.history-entry:hover {
+    background: #eaeaea;
+    border-radius: 4px;
+}
+
+
+/* Mobile full-screen app style */
+@media (max-width: 600px) {
+    body {
+        background: none;           /* remove background */
+        height: 100vh;
+        margin: 0;
+    }
+
+    .calculator {
+        width: 100%;
+        height: 100vh;              /* take full screen height */
+        max-width: none;            /* no max width restriction */
+        padding: 20px;
+        border-radius: 0;           /* remove rounded corners */
+        box-shadow: none;           /* remove shadow */
+        background: #f0f3ff;        /* keep app background */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .data_entry {
+        margin-bottom: 20px;
+    }
+
+    .buttonTable {
+        flex-grow: 1;               /* buttons fill remaining space */
+    }
+
+    .calc-key {
+        padding: 18px;
+        font-size: 1.1rem;
+    }
+}
+
+.calc-key.active {
+    background-color: #d0d0d0;   /* highlight color */
+    border: 2px solid #888;
+}

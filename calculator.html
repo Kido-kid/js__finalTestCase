@@ -1,0 +1,72 @@
+<html lang="en">
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="Style.css">
+        
+    </head>
+    <body>
+        <section class="main">
+            <div class="calculator">
+                <header class="calc-header">
+                    <h2>Calculator</h2>
+                    <button id="toggleHistory">Show History</button>
+                </header>
+                <aside id="historyContainer" style="display:none;"></aside>
+                <div class="data_entry">
+                    <div class="dataView_secondary">
+                        <input readonly>
+                    </div>
+                    <div class="dataView_primary">
+                        <input type="text" id="primaryData" placeholder="0" readonly>
+                    </div>
+                    <div class="ErrorView">
+                        <input readonly>
+                    </div>
+                </div>
+                <table class="buttonTable">
+                    <tr>
+                        <td colspan="2"> <button  class="calc-key mode"  id="Dmode">Dark Mode</button></td> 
+                        <td> <button  class="calc-key" id="openBracket">(</button></td> 
+                        <td> <button  class="calc-key" id="closeBracket">)</button></td> 
+                        <td> <button  class="calc-key" id="allClear">AC</button></td> 
+                        <td> <button  class="calc-key" id="lastClear">Del</button></td> 
+                    </tr>
+                    <tr>
+                        <td> <button  class="calc-key" id="sin">Sin</button></td> 
+                        <td> <button  class="calc-key" id="cos">Cos</button></td> 
+                        <td> <button  class="calc-key digit" id="digit7">7</button></td> 
+                        <td> <button  class="calc-key digit" id="digit8">8</button></td> 
+                        <td> <button  class="calc-key digit" id="digit9">9</button></td> 
+                        <td> <button  class="calc-key" id="division">/</button></td> 
+                    </tr>
+                    <tr>
+                        <td> <button  class="calc-key" id="tan">tan</button></td> 
+                        <td> <button  class="calc-key" id="log">log</button></td> 
+                        <td> <button  class="calc-key digit" id="digit4">4</button></td> 
+                        <td> <button  class="calc-key digit" id="digit5">5</button></td> 
+                        <td> <button  class="calc-key digit" id="digit6">6</button></td> 
+                        <td> <button  class="calc-key" id="multiplication">*</button></td> 
+                    </tr>
+                    <tr>
+                        <td> <button  class="calc-key" id="sqrt">sqrt</button></td> 
+                        <td> <button  class="calc-key" id="exponential">^</button></td> 
+                        <td> <button  class="calc-key digit" id="digit1">1</button></td> 
+                        <td> <button  class="calc-key digit" id="digit2">2</button></td> 
+                        <td> <button  class="calc-key digit" id="digit3">3</button></td> 
+                        <td> <button  class="calc-key digit" id="subtraction">-</button></td> 
+                    </tr>
+                    <tr>
+                        <td> <button  class="calc-key" id="ans">Ans</button></td> 
+                        <td> <button  class="calc-key" id="percentage">%</button></td> 
+                        <td> <button  class="calc-key digit" id="digit0">0</button></td> 
+                        <td> <button  class="calc-key" id="decimal">.</button></td> 
+                        <td> <button  class="calc-key" id="equal">=</button></td> 
+                        <td> <button  class="calc-key" id="sum">+</button></td> 
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+</html>
