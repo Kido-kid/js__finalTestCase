@@ -57,8 +57,10 @@ function isValidFirstEntry(id) {
     return true;
 }
 // --- Validation function ---
-function isValidNextInput(currentExpression, id) {
+function isValidNextInput(currentExpression, id,clas) {
     let lastChar = currentExpression.slice(-1);
+
+    console.log(clas);
 
     // If last token is "ans" and next is digit, ans, or function
     if (/ans$/.test(currentExpression) &&
@@ -69,8 +71,10 @@ function isValidNextInput(currentExpression, id) {
     }
 
     // If last char is digit or ')' and next is function or ans
-    if ((/\d$/.test(lastChar) || lastChar === ")") &&
-        ["sin","cos","tan","log","sqrt","ans"].includes(id)) {
+    if ((lastChar === ")") &&
+       ( ["sin","cos","tan","log","sqrt","ans"].includes(id) ||
+         clas.includes("digit" ) )) {
+        console.log(lastChar);
         errorView.value = "Error: need operator!";
         return false;
     }
@@ -146,6 +150,7 @@ if (/\($/.test(currentExpression)) {
 document.querySelectorAll(".calc-key").forEach(button => {
     button.addEventListener("click", () => {
         const id = button.id;
+        const clas = button.className;
         const text = button.textContent;
 
           // Check if last action was evaluation
@@ -158,7 +163,7 @@ document.querySelectorAll(".calc-key").forEach(button => {
         justEvaluated = false;
         }
 
-        if(!isValidNextInput(currentExpression, id)) return;
+        if(!isValidNextInput(currentExpression, id,clas)) return;
                 // First entry validation
         if (currentExpression.length === 0 && !isValidFirstEntry(id)) {
             return; // block invalid start
@@ -273,6 +278,14 @@ function evaluateExpression() {
             .replace(/%/g, "/100"); // handle percentage
 
         let result = eval(expr);
+
+        if (!isFinite(result)) {
+            errorView.value = "Math Error!";
+            //updatePrimaryDisplay("Error");
+            let result ;
+            return;
+        }
+
 
 
         secondaryView.value = currentExpression; // show original expression

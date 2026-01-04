@@ -164,8 +164,8 @@ body.dark-mode .calc-key:not(.digit):not(#equal) {
 /* History container */
 #historyContainer {
     margin-top: 2px;
-    max-height: 100px;       /* allow more entries */
-    overflow-y: auto;        /* scroll if needed */
+    max-height: 100px;       
+    overflow-y: auto;        
     font-family: monospace;
     background: #f0f3ff;
     padding: 8px;
@@ -182,7 +182,7 @@ body.dark-mode .calc-key:not(.digit):not(#equal) {
     scrollbar-width: none;
 }
 
-/* History entries (no borders, clean spacing) */
+/* History entries  */
 .history-entry {
     padding: 6px 0;
     cursor: pointer;
